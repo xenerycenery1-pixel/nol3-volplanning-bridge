@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "NOL3 VOLPLANNING BRIDGE",
+  "version": "1.0.0",
+  "description": "NOL3 VolPlanning Bridge: pulls Inventory, Delivering and TO List exports from SPX (the station you are logged in to) into the NOL3 VolPlanning dashboard. Works on that page only.",
+  "host_permissions": [
+    "https://spx.shopee.ph/*",
+    "https://*.susercontent.com/*",
+    "https://*.file.susercontent.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://xenerycenery1-pixel.github.io/nol3-volplanning/*",
+        "http://localhost/*",
+        "http://127.0.0.1/*",
+        "file:///*"
+      ],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
